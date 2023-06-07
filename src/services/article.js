@@ -28,7 +28,9 @@ export const articleApi = createApi({
     }),
     endpoints: (builder) => ({
         getSummary: builder.query({
-            query: (params) => `test`
+            query: (params) => `/summarize?url=${encodeURIComponent(params.articleUrl)}&length=3`
         })
     })
 })
+
+export const { useLazyGetSummaryQuery } = articleApi;
